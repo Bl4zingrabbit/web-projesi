@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Görsel Keşif | Akıllı Nesne ve Hash Araması</title>
+    <meta name="description" content="Görsellerinizi yükleyin, içindeki nesneleri saniyeler içinde analiz edip kütüphanemizdeki en iyi eşleşmeleri bulalım.">
+    
+    <!-- Modern bir tipografi için Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Ana Stil Dosyamız (Aşama 3'te yazacağız) -->
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+
+    <!-- Üst Kısım: Logo ve Başlık -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Görsel<span>Keşif</span></h1>
+            <p class="subtitle">Görseli bırakın, yapay zeka eşleşmeleri bulsun.</p>
+        </div>
+    </header>
+
+    <!-- Ana İçerik Alanı -->
+    <main class="main-content container">
+
+        <!-- 1. Adım: Sürükle & Bırak Yükleme Alanı -->
+        <section id="upload-section" class="card upload-area" aria-label="Görsel Yükleme Alanı">
+            <div class="upload-box" id="drop-zone">
+                <!-- Buraya Aşama 3'te bir ikon ekleyeceğiz -->
+                <div class="upload-icon">📸</div>
+                <h2>Görseli Buraya Sürükleyin</h2>
+                <p>veya</p>
+                <!-- Erişilebilirlik için label kullanımı -->
+                <label for="file-input" class="btn-primary">Dosya Seç</label>
+                <input type="file" id="file-input" accept="image/jpeg, image/png, image/webp" hidden>
+                <p class="file-info">Sadece JPG, PNG, WEBP (Max: 5MB)</p>
+            </div>
+        </section>
+
+        <!-- 2. Adım: Yükleme ve Analiz Animasyonu (Başlangıçta Gizli) -->
+        <section id="processing-section" class="card hidden" aria-live="polite">
+            <div class="processing-content">
+                <!-- Lottie animasyonu buraya yüklenecek -->
+                <div id="lottie-scanner"></div>
+                <h3 id="processing-text">Görsel Analiz Ediliyor...</h3>
+                <p class="processing-detail">Nesneler tespit ediliyor ve Hash karşılaştırması yapılıyor.</p>
+            </div>
+        </section>
+
+        <!-- 3. Adım: Sonuçların Gösterildiği Alan (Başlangıçta Gizli) -->
+        <section id="results-section" class="hidden" aria-label="Arama Sonuçları">
+            <div class="results-header">
+                <h2>Eşleşen Görseller</h2>
+                <button id="btn-reset" class="btn-secondary">Yeni Arama Yap</button>
+            </div>
+            
+            <!-- Sonuçların JS ile basılacağı Grid Alanı -->
+            <div class="results-grid" id="results-grid">
+                <!-- Örnek Sonuç Kartı İskeleti (JS ile dinamik üretilecek) -->
+                <!--
+                <figure class="result-card">
+                    <img src="path/to/image.jpg" alt="Bulunan Görsel" loading="lazy">
+                    <figcaption>
+                        <span class="badge">98% Eşleşme</span>
+                    </figcaption>
+                </figure>
+                -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Alt Bilgi -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Görsel Keşif Sistemi. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Animasyonlar için Lottie kütüphanesi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    
+    <!-- İş mantığı dosyamız (Aşama 4'te yazacağız) -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
